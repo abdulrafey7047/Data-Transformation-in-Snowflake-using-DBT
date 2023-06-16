@@ -1,7 +1,3 @@
-{{
-    config(materialized="table")
-}}
-
 WITH
 
 customers AS (
@@ -11,8 +7,6 @@ customers AS (
 orders AS (
     SELECT * FROM {{ ref("stg_order") }}
 ),
-
-
 
 custom_oders AS (
 
