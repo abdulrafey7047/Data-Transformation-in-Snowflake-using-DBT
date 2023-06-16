@@ -5,7 +5,7 @@ WITH customers AS (
         first_name,
         last_name
     FROM
-        raw.jaffle_shop.customers
+        {{ source("jaffle_shop", "customers") }}
 )
 
 SELECT * FROM customers

@@ -6,7 +6,7 @@ WITH orders AS (
         order_date,
         status
     FROM
-        raw.jaffle_shop.orders
+        {{ source("jaffle_shop", "orders") }}
 )
 
 SELECT * FROM orders

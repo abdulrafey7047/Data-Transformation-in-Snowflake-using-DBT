@@ -8,7 +8,8 @@ WITH payment AS (
         amount,
         created
     FROM
-        raw.stripe.payment
+        {{ source("stripe", "payment") }}
 )
+
 
 SELECT * FROM payment
