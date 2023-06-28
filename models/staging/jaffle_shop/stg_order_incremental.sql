@@ -20,4 +20,4 @@ WITH orders_incremental AS (
     {% endif %}
 )
 
-SELECT * FROM orders
+SELECT * FROM orders_incremental
