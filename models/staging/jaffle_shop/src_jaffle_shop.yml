@@ -12,33 +12,12 @@ sources:
               - unique
               - not_null
       - name: orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
         loaded_at_field: _etl_loaded_at
         freshness: 
-          warn_after:
-            count: 1
-            period: day
-          error_after:
-            count: 10
-            period: day
-
-models:
-  - name: stg_customer
-    columns:
-      - name: customer_id
-        tests:
-          - unique
-          - not_null
-  
-  - name: stg_order
-    columns:
-      - name: status
-        tests:
-          - accepted_values:
-              values:
-                - shipped
-                - returned
-                - completed
-                - return_pending
-                - placed
-              
-
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}

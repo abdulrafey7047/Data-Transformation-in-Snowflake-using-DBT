@@ -1,14 +1,8 @@
-WITH
-
-payments AS (
-    SELECT * FROM {{ ref("stg_payment") }}
-)
-
 SELECT
     orderid,
     sum(amount) AS total_amount
 FROM
-    payments
+    {{ ref("stg_payment") }}
 GROUP BY
     orderid
 HAVING
